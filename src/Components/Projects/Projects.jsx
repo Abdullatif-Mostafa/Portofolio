@@ -16,7 +16,7 @@ import image2 from '../../Assets/Images/Screenshot 2024-10-08 001544.png'
 import image3 from '../../Assets/Images/Screenshot 2024-10-08 001305.png'
 import image4 from '../../Assets/Images/Screenshot 2024-10-08 022244.png'
 import image5 from '../../Assets/Images/Screenshot 2024-10-08 023657.png'
-
+import image6 from '../../Assets/Images/Screenshot 2024-10-08 194226.png'
 const projects = [
   {
     title: 'Social Website',
@@ -56,7 +56,15 @@ const projects = [
       'Developed a responsive restaurant website for making real food from the best ingredients.',
     image: image5,
     technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript','React JS',"React Bootstrap"],
-    link: 'https://surian.surge.sh/',
+    link: 'https://surian-restaurant.vercel.app/',
+  },
+  {
+    title: 'Gusto Restaurant',
+    description:
+      'Developed a responsive restaurant website for making real food from the best ingredients.',
+    image: image6,
+    technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript','React JS',"React Bootstrap"],
+    link: 'https://gustorest.surge.sh/',
   },
   
 ];

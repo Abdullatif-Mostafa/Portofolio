@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Link as ScrollLink } from 'react-scroll';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Links = ['About', 'Projects', 'Skills', 'Contact'];
 
@@ -53,6 +54,7 @@ export default function Header() {
           <Flex alignItems={'center'}>
             <HStack
               as={'nav'}
+              color="gray.900"
               spacing={4}
               display={{ base: 'none', md: 'flex' }}
             >
@@ -65,7 +67,7 @@ export default function Header() {
           </Flex>
           <IconButton
             size={'md'}
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+            icon={isOpen ? <CloseIcon /> : <HamburgerIcon style={{width:"30px",height:"25px"}} />}
             aria-label={'Open Menu'}
             display={{ md: 'none' }}
             onClick={isOpen ? onClose : onOpen}
@@ -75,17 +77,26 @@ export default function Header() {
           />
         </Flex>
 
-        {isOpen ? (
-          <Box pb={4} display={{ md: 'none' }}>
-            <Stack as={'nav'} spacing={4}>
-              {Links.map((link) => (
-                <NavLink key={link} to={link.toLowerCase()}>
-                  {link}
-                </NavLink>
-              ))}
-            </Stack>
-          </Box>
-        ) : null}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Box pb={4} display={{ md: 'none' }}>
+                <Stack as={'nav'} spacing={4}>
+                  {Links.map((link) => (
+                    <NavLink key={link} to={link.toLowerCase()}>
+                      {link}
+                    </NavLink>
+                  ))}
+                </Stack>
+              </Box>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </Box>
       {/* Spacer to prevent content from being hidden behind the fixed header */}
       <Box h="16" />
