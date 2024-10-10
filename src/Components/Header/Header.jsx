@@ -3,7 +3,6 @@ import {
   Box,
   Flex,
   HStack,
-  Link,
   IconButton,
   useDisclosure,
   Stack,
@@ -30,7 +29,8 @@ const NavLink = ({ children, to }) => (
       rounded={'md'}
       _hover={{
         textDecoration: 'none',
-        bg: 'gray.200',
+         bg: 'teal.600' 
+        // bg: 'gray.200',
       }}
       cursor="pointer"
     >
@@ -53,13 +53,15 @@ export default function Header() {
           </Box>
           <Flex alignItems={'center'}>
             <HStack
+              fontSize={'19px'}
               as={'nav'}
-              color="gray.900"
+              color="gray.100"
               spacing={4}
               display={{ base: 'none', md: 'flex' }}
+              
             >
               {Links.map((link) => (
-                <NavLink key={link} to={link.toLowerCase()}>
+                <NavLink  key={link} to={link.toLowerCase()}>
                   {link}
                 </NavLink>
               ))}

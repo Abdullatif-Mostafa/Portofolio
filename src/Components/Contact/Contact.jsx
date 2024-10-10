@@ -20,7 +20,6 @@ export default function Contact() {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -34,6 +33,7 @@ export default function Contact() {
         status: 'success',
         duration: 5000,
         isClosable: true,
+        position:"top"
       });
       setFormData({ name: '', email: '', message: '' });
     }, 2000);
