@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Heading, Text, Stack, Avatar, useColorModeValue } from '@chakra-ui/react';
-import image1 from '../../Assets/Images/Screenshot 2023-12-24 192806.png'
+import image1 from '../../Assets/Images/contentImage.png'
 export default function About() {
   return (
     <Box

@@ -22,6 +22,7 @@ import image5 from '../../Assets/Images/Screenshot 2024-10-08 023657.png';
 import image6 from '../../Assets/Images/Screenshot 2024-10-09 175347.png';
 import image7 from '../../Assets/Images/Screenshot 2024-10-09 150933.png';
 import image8 from '../../Assets/Images/Screenshot 2024-10-10 144029.png';
+import image9 from '../../Assets/Images/Screenshot 2024-10-12 144651.png';
 
 const projects = [
   {
@@ -86,6 +87,14 @@ const projects = [
     image: image8,
     technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
     link:'https://iphon-15-pro-max.vercel.app/',
+  },
+
+  {
+    title: 'Alamy Restaurant ',
+    description:'Developed a responsive Restaurant Menu Design',
+    image: image9,
+    technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
+    link:'https://alamy-rest.vercel.app/',
   },
 ];
 // Create a motion-enabled Box component

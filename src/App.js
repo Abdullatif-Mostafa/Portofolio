@@ -24,6 +24,7 @@ function App() {
       <Box id="contact" mt={10}>
         <Contact />
       </Box>
+
       <Footer />
     </Box>
   );
