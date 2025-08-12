@@ -23,8 +23,32 @@ import image6 from '../../Assets/Images/Screenshot 2024-10-09 175347.png';
 import image7 from '../../Assets/Images/Screenshot 2024-10-09 150933.png';
 import image8 from '../../Assets/Images/Screenshot 2024-10-10 144029.png';
 import image9 from '../../Assets/Images/Screenshot 2024-10-12 144651.png';
-
+import image10 from '../../Assets/Images/Screenshot 2025-08-12 170740.png'
+import image11 from '../../Assets/Images/Screenshot 2025-08-12 173432.png'
+import image12 from '../../Assets/Images/Screenshot 2025-08-12 224323.png'
 const projects = [
+  {
+    title: 'Wasal App',
+    description:" Wasal is a social website like Facebok by using this website you add new friends and concat with them and you can post posts and watch friend posts ",
+    image: image12,
+    technologies: ['React.js','Bootstrap', 'tailWind Css',"Responsive WebSite","Node js","Express js","Mongo db","JWT"],
+    link: 'https://wasal-chi.vercel.app/',
+  },
+  {
+    title: 'Happyness Hotle Website',
+    description:" hotle webSite it provides many services like book rooms and anthor serices",
+    image: image10,
+    technologies: ['React.js','Bootstrap', 'Chakra UI',"Responsive WebSite"],
+    link: 'https://happiness-hotel.vercel.app/',
+  },
+  {
+    title: 'Ecommerce Website',
+    description:
+    'Built a fully functional eCommerce platform with user authentication, product browsing, and cart management.',
+    image: image2,
+    technologies: ['Node.js', 'React.js', 'Redux', 'MongoDB', 'Bootstrap', 'Express.js'],
+    link: 'https://sales-gules.vercel.app/',
+  },
   {
     title: 'Social Website',
     description:
@@ -32,14 +56,6 @@ const projects = [
     image: image1, // Replace with your project image
     technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript', 'React.js', 'Chakra UI', 'Node.js', 'Express.js', 'MongoDB'],
     link: 'https://social-aapp.vercel.app/',
-  },
-  {
-    title: 'Ecommerce Website',
-    description:
-      'Built a fully functional eCommerce platform with user authentication, product browsing, and cart management.',
-    image: image2,
-    technologies: ['Node.js', 'React.js', 'Redux', 'MongoDB', 'Bootstrap', 'Express.js'],
-    link: 'https://sales-gules.vercel.app/',
   },
   {
     title: 'Furniture Transport Platform',
@@ -58,6 +74,13 @@ const projects = [
     link: 'https://abdullatif-mostafa.github.io/Bread-Store/',
   },
   {
+       title: 'To Do List ',
+    description:'Developed a to do list ',
+    image: image11,
+    technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
+    link:'https://to-do-list-eosin-xi.vercel.app/',
+  },
+  {
     title: 'Foodera Restaurant',
     description:
       'Developed a responsive restaurant website for making real food from the best ingredients.',
@@ -68,7 +91,7 @@ const projects = [
   {
     title: 'Gusto Restaurant',
     description:
-      'Developed a responsive restaurant website for making real food from the best ingredients.',
+    'Developed a responsive restaurant website for making real food from the best ingredients.',
     image: image6,
     technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript','React JS',"React Bootstrap"],
     link: 'https://gusto-itali.surge.sh/',
