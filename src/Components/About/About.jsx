@@ -106,14 +106,14 @@ export default function About() {
                 </Heading>
                 
                 <Text fontSize="lg" color="gray.600" lineHeight="1.8">
-                  أنا مطور ويب شغوف متخصص في Node.js و React.js. أقوم ببناء مواقع ويب وخدمات قوية وقابلة للتطوير، 
+                  أنا مطور ويب شغوف متخصص في  و Next js , Node.js و React.js. أقوم ببناء مواقع ويب وخدمات قوية وقابلة للتطوير، 
                   مع التركيز على تطوير الواجهات الأمامية والخلفية. لدي خبرة في منصات التجارة الإلكترونية واللوجستيات، 
                   وأقدم حلولاً عالية الأداء ومتمحورة حول المستخدم.
                 </Text>
 
                 <HStack spacing={4} flexWrap="wrap">
                   <Badge colorScheme="green" px={3} py={1} borderRadius="full">
-                    +3 سنوات خبرة
+                    +2 سنوات خبرة
                   </Badge>
                   <Badge colorScheme="blue" px={3} py={1} borderRadius="full">
                     +20 مشروع

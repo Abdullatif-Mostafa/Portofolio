@@ -144,7 +144,8 @@ const Footer = () => {
             </Heading>
             <VStack align="flex-start" spacing={3}>
               <Text fontSize="sm">
-                📧 abdullatif.mostafa@example.com
+                📧 abdellatyfmostafa8@gmail.com
+
               </Text>
               <Text fontSize="sm">
                 📱 +20 01032558781

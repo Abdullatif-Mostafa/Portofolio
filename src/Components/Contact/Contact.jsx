@@ -58,13 +58,13 @@ export default function Contact() {
     {
       icon: FaEnvelope,
       title: 'البريد الإلكتروني',
-      value: 'abdullatif.mostafa@example.com',
+      value: 'abdellatyfmostafa8@gmail.com',
       color: 'blue.500'
     },
     {
       icon: FaPhone,
       title: 'الهاتف',
-      value: '+20 123 456 7890',
+      value: '+20 01032558781',
       color: 'green.500'
     },
     {
@@ -218,7 +218,7 @@ export default function Contact() {
                   <VStack spacing={6}>
                     <FormControl id="name" isRequired>
                       <FormLabel color="gray.700" fontWeight="semibold">
-                        الاسم *
+                        الاسم 
                       </FormLabel>
                       <Input
                         type="text"
@@ -241,7 +241,7 @@ export default function Contact() {
 
                     <FormControl id="email" isRequired>
                       <FormLabel color="gray.700" fontWeight="semibold">
-                        البريد الإلكتروني *
+                        البريد الإلكتروني 
                       </FormLabel>
                       <Input
                         type="email"
@@ -264,7 +264,7 @@ export default function Contact() {
 
                     <FormControl id="message" isRequired>
                       <FormLabel color="gray.700" fontWeight="semibold">
-                        الرسالة *
+                        الرسالة 
                       </FormLabel>
                       <Textarea
                         name="message"
