@@ -14,6 +14,8 @@ import {
 } from '@chakra-ui/react';
 import { FaGithub, FaLinkedin, FaEnvelope, FaArrowDown } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import i18n from '../../i18n';
 
 const MotionBox = motion(Box);
 const MotionText = motion(Text);
@@ -38,6 +40,7 @@ const gradientShiftAnimation = `
 `;
 
 const Hero = () => {
+  const { t } = useTranslation();
   const bgGradient = useColorModeValue(
     'linear(to-br, mocha.50, gray.100, mocha.100)',
     'linear(to-br, gray.900, mocha.900, gray.800)'
@@ -64,7 +67,7 @@ const Hero = () => {
         right="0"
         bottom="0"
         opacity="0.05"
-        backgroundImage={`url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`}
+        backgroundImage={`url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000\' fill-opacity=\'0.1\'%3E%3Ccircle cx=\'30\' cy=\'30\' r=\'2\'%3E%3C/circle%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`}
       />
 
       <Container maxW="7xl" h="100vh" position="relative">
@@ -91,7 +94,7 @@ const Hero = () => {
               fontWeight="500"
               letterSpacing="wide"
             >
-              مرحباً، أنا
+              {t('hero.greeting')}
             </MotionText>
 
             <MotionHeading
@@ -109,7 +112,7 @@ const Hero = () => {
                 backgroundSize: '200% 200%',
               }}
             >
-              عبد اللطيف مصطفى
+              {t('hero.name')}
             </MotionHeading>
 
             <MotionHeading
@@ -121,7 +124,7 @@ const Hero = () => {
               color="gray.600"
               fontWeight="600"
             >
-              مطور ويب متكامل
+              {t('hero.title')}
             </MotionHeading>
 
             <MotionText
@@ -133,8 +136,7 @@ const Hero = () => {
               maxW="500px"
               lineHeight="1.8"
             >
-              مطور ويب شغوف متخصص في Node.js و React.js. أقوم ببناء مواقع ويب وخدمات قوية وقابلة للتطوير، 
-              مع التركيز على تطوير الواجهات الأمامية والخلفية. خبرة في منصات التجارة الإلكترونية واللوجستيات.
+              {t('hero.description')}
             </MotionText>
 
             <MotionBox
@@ -154,7 +156,7 @@ const Hero = () => {
                     boxShadow: '0 10px 25px rgba(166, 146, 110, 0.3)',
                   }}
                 >
-                  تواصل معي
+                  {t('hero.contactBtn')}
                 </Button>
                 <Button
                   size="lg"
@@ -166,7 +168,7 @@ const Hero = () => {
                     boxShadow: '0 10px 25px rgba(166, 146, 110, 0.2)',
                   }}
                 >
-                  أعمالي
+                  {t('hero.projectsBtn')}
                 </Button>
               </HStack>
             </MotionBox>
@@ -257,7 +259,7 @@ const Hero = () => {
               >
                 <Image
                   src="/api/placeholder/400/400"
-                  alt="عبد اللطيف مصطفى"
+                  alt={t('hero.name')}
                   w="100%"
                   h="100%"
                   objectFit="cover"
@@ -272,6 +274,7 @@ const Hero = () => {
                       color="mocha.500"
                     >
                       👨‍💻
+
                     </Flex>
                   }
                 />
@@ -295,7 +298,7 @@ const Hero = () => {
         >
           <VStack spacing={2}>
             <Text fontSize="sm" color="gray.500">
-              تمرير للأسفل
+              {i18n.language === 'en' ? 'Scroll Down' : 'انتقل إلى الأسفل'}
             </Text>
             <Icon
               as={FaArrowDown}

@@ -1,4 +1,5 @@
 import React from 'react';
+import './i18n';
 import { Box, ChakraProvider } from '@chakra-ui/react';
 import { extendTheme } from '@chakra-ui/react';
 import Header from './Components/Header/Header';
@@ -8,6 +9,7 @@ import Projects from './Components/Projects/Projects';
 import Skills from './Components/Skills/Skills';
 import Contact from './Components/Contact/Contact';
 import Footer from './Components/Footer/Footer';
+import { useTranslation } from 'react-i18next';
 
 // Modern theme with 2025 design trends and RTL support
 const theme = extendTheme({
@@ -110,9 +112,12 @@ const theme = extendTheme({
 });
 
 function App() {
+  const { i18n } = useTranslation();
+  const currentDirection = i18n.language === 'ar' ? 'rtl' : 'ltr';
+
   return (
     <ChakraProvider theme={theme}>
-      <Box minH="100vh" bg="gray.50" dir="rtl">
+      <Box minH="100vh" bg="gray.50" dir={currentDirection}>
         <Header />
         <Hero />
         <Box id="about" py={20}>

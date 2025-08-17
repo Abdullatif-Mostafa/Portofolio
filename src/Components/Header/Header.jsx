@@ -14,16 +14,10 @@ import {
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Link as ScrollLink } from 'react-scroll';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 
 const MotionBox = motion(Box);
-
-const Links = [
-  { name: 'الرئيسية', to: 'hero' },
-  { name: 'نبذة عني', to: 'about' },
-  { name: 'أعمالي', to: 'projects' },
-  { name: 'مهاراتي', to: 'skills' },
-  { name: 'تواصل معي', to: 'contact' }
-];
 
 const NavLink = ({ children, to, onClick }) => (
   <ScrollLink
@@ -49,17 +43,28 @@ const NavLink = ({ children, to, onClick }) => (
         color: 'mocha.700',
         bg: 'mocha.100',
       }}
-      cursor="pointer"
-      transition="all 0.2s"
+      transition="all 0.2s ease"
+      borderRadius="lg"
+      px={4}
+      py={2}
     >
       {children}
     </Button>
   </ScrollLink>
 );
 
-export default function Header() {
+const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useTranslation();
+
+  const Links = [
+    { name: t('nav.home'), to: 'hero' },
+    { name: t('nav.about'), to: 'about' },
+    { name: t('nav.projects'), to: 'projects' },
+    { name: t('nav.skills'), to: 'skills' },
+    { name: t('nav.contact'), to: 'contact' }
+  ];
 
   const bg = useColorModeValue(
     scrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.1)',
@@ -94,7 +99,7 @@ export default function Header() {
         backdropFilter="blur(10px)"
         borderBottom="1px solid"
         borderColor={borderColor}
-        transition="all 0.3s ease"
+        // transition="all 0.3s ease"
       >
         <Container maxW="7xl">
           <Flex h={20} alignItems="center" justifyContent="space-between">
@@ -115,7 +120,7 @@ export default function Header() {
                 }}
                 transition="transform 0.2s"
               >
-                عبد اللطيف
+                {t('hero.name').split(' ')[0]}
               </Heading>
             </MotionBox>
 
@@ -137,22 +142,37 @@ export default function Header() {
                   </NavLink>
                 </MotionBox>
               ))}
+              
+              {/* Language Switcher */}
+              <MotionBox
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                ml={4}
+              >
+                <LanguageSwitcher />
+              </MotionBox>
             </HStack>
 
-            {/* Mobile menu button */}
-            <IconButton
-              size="lg"
-              icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-              aria-label="فتح القائمة"
-              display={{ md: 'none' }}
-              onClick={isOpen ? onClose : onOpen}
-              variant="ghost"
-              color="gray.700"
-              _hover={{
-                bg: 'mocha.50',
-                color: 'mocha.600',
-              }}
-            />
+            {/* Mobile menu button and language switcher */}
+            <HStack spacing={2}>
+              <Box display={{ base: 'block', md: 'none' }}>
+                <LanguageSwitcher />
+              </Box>
+              <IconButton
+                size="lg"
+                icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+                aria-label="فتح القائمة"
+                display={{ md: 'none' }}
+                onClick={isOpen ? onClose : onOpen}
+                variant="ghost"
+                color="gray.700"
+                _hover={{
+                  bg: 'mocha.50',
+                  color: 'mocha.600',
+                }}
+              />
+            </HStack>
           </Flex>
         </Container>
 
@@ -188,4 +208,7 @@ export default function Header() {
       <Box h="20" />
     </>
   );
-}
+};
+
+export default Header;
+

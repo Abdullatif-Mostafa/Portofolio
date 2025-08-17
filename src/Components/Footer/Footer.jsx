@@ -1,11 +1,11 @@
 import React from 'react';
-import { 
-  Box, 
+import {
+  Box,
   Container,
-  Stack, 
-  Text, 
-  IconButton, 
-  Link, 
+  Stack,
+  Text,
+  IconButton,
+  Link,
   VStack,
   HStack,
   Divider,
@@ -17,24 +17,24 @@ import {
 import { FaFacebook, FaGithub, FaLinkedin, FaTwitter, FaHeart, FaCode } from 'react-icons/fa';
 import { Link as ScrollLink } from 'react-scroll';
 import { motion } from 'framer-motion';
-
+import { useTranslation } from 'react-i18next';
 const MotionBox = motion(Box);
 
 const socialLinks = [
-  { 
-    icon: FaGithub, 
+  {
+    icon: FaGithub,
     url: 'https://github.com/Abdullatif-Mostafa',
     label: 'GitHub',
     color: 'gray.700'
   },
-  { 
-    icon: FaLinkedin, 
+  {
+    icon: FaLinkedin,
     url: 'https://www.linkedin.com/in/abdullatif-moustafa-1b6322248',
     label: 'LinkedIn',
     color: 'blue.600'
   },
-  { 
-    icon: FaTwitter, 
+  {
+    icon: FaTwitter,
     url: 'https://twitter.com/AbdullatifMous3',
     label: 'Twitter',
     color: 'blue.400'
@@ -48,14 +48,58 @@ const socialLinks = [
 ];
 
 const quickLinks = [
-  { name: 'الرئيسية', to: 'hero' },
-  { name: 'نبذة عني', to: 'about' },
-  { name: 'أعمالي', to: 'projects' },
-  { name: 'مهاراتي', to: 'skills' },
-  { name: 'تواصل معي', to: 'contact' }
+  {
+    name_ar: 'الرئيسية',
+    name_en: 'Home',
+    to: 'hero'
+  },
+  {
+    name_ar: 'نبذة عني',
+    name_en: 'About',
+    to: 'about'
+  },
+  {
+    name_ar: 'أعمالي',
+    name_en: 'Projects',
+    to: 'projects'
+  },
+  {
+    name_ar: 'مهاراتي',
+    name_en: 'Skills',
+    to: 'skills'
+  },
+  {
+    name_ar: 'تواصل معي',
+    name_en: 'Contact',
+    to: 'contact'
+  }
 ];
+const services = [
+  {
+    name_ar: 'تطوير مواقع الويب',
+    name_en: "Web Development"
+  },
+  {
+    name_ar: 'تصميم واجهات المستخدم',
+    name_en: "Front-end Design"
+  },
+  {
+    name_ar: 'صيانة وتطوير',
+    name_en: 'Maintenance & Support'
+  },
+  {
+    name_ar: "استشارات تقنية",
+    name_en: "Technical Consulting"
+  },
+  {
+    name_ar: "تصاميم عصريه ومتجاوبه  ",
+    name_en: "Modern and Responsive Designs"
+  }
+]
 
 const Footer = () => {
+  const { t, i18n } = useTranslation();
+
   const bgColor = useColorModeValue('gray.900', 'gray.900');
   const textColor = useColorModeValue('gray.300', 'gray.300');
   const headingColor = useColorModeValue('white', 'white');
@@ -67,24 +111,30 @@ const Footer = () => {
           {/* Brand Section */}
           <VStack align="flex-start" spacing={4}>
             <Heading as="h3" size="lg" color={headingColor} fontWeight="bold">
-              عبد اللطيف مصطفى
+              {t('footer.brand')}
             </Heading>
             <Text fontSize="sm" lineHeight="tall">
-              مطور ويب شغوف متخصص في بناء تطبيقات ومواقع ويب حديثة باستخدام أحدث التقنيات.
+              {t('footer.description')}
             </Text>
             <HStack spacing={1} align="center">
-              <Text fontSize="sm">صُنع بـ</Text>
+              <Text fontSize="sm">
+                {t('footer.madeWith')}
+              </Text>
               <FaHeart color="#e53e3e" size="12px" />
-              <Text fontSize="sm">و</Text>
+              <Text fontSize="sm">
+                {t('footer.and')}
+              </Text>
               <FaCode color="#3182ce" size="12px" />
-              <Text fontSize="sm">في مصر</Text>
+              <Text fontSize="sm">
+                {t('footer.inEgypt')}
+              </Text>
             </HStack>
           </VStack>
 
           {/* Quick Links */}
           <VStack align="flex-start" spacing={4}>
             <Heading as="h4" size="md" color={headingColor} fontWeight="semibold">
-              روابط سريعة
+              {t('footer.quickLinks')}
             </Heading>
             <VStack align="flex-start" spacing={2}>
               {quickLinks.map((link, index) => (
@@ -102,14 +152,15 @@ const Footer = () => {
                   >
                     <Link
                       fontSize="sm"
-                      _hover={{ 
+                      _hover={{
                         color: 'mocha.400',
                         textDecoration: 'none'
                       }}
                       cursor="pointer"
                       transition="all 0.2s ease"
                     >
-                      {link.name}
+                      {i18n.language === 'ar' ? link.name_ar : link.name_en}
+                      {/* {link.name} */}
                     </Link>
                   </ScrollLink>
                 </MotionBox>
@@ -120,18 +171,12 @@ const Footer = () => {
           {/* Services */}
           <VStack align="flex-start" spacing={4}>
             <Heading as="h4" size="md" color={headingColor} fontWeight="semibold">
-              الخدمات
+              {t('footer.services')}
             </Heading>
             <VStack align="flex-start" spacing={2}>
-              {[
-                'تطوير مواقع الويب',
-                'تطوير تطبيقات الويب',
-                'تصميم واجهات المستخدم',
-                'استشارات تقنية',
-                'صيانة وتطوير'
-              ].map((service, index) => (
+              {services.map((service, index) => (
                 <Text key={index} fontSize="sm" _hover={{ color: 'mocha.400' }} cursor="default">
-                  {service}
+                  {i18n.language === 'ar' ? service.name_ar : service.name_en}
                 </Text>
               ))}
             </VStack>
@@ -140,25 +185,24 @@ const Footer = () => {
           {/* Contact & Social */}
           <VStack align="flex-start" spacing={4}>
             <Heading as="h4" size="md" color={headingColor} fontWeight="semibold">
-              تواصل معي
+              {t('footer.contactInfo')}
             </Heading>
             <VStack align="flex-start" spacing={3}>
               <Text fontSize="sm">
-                📧 abdellatyfmostafa8@gmail.com
-
+                📧abdellatyfmostafa8@gmail.com
               </Text>
               <Text fontSize="sm">
                 📱 +20 01032558781
               </Text>
               <Text fontSize="sm">
-                📍 القاهرة، مصر
+                {i18n.language === 'ar' ? '📍 القاهرة، مصر' : '📍 Cairo, Egypt'}
               </Text>
             </VStack>
-            
+
             {/* Social Media Links */}
             <Box>
               <Text fontSize="sm" mb={3} fontWeight="semibold">
-                تابعني على:
+                {t('footer.followMe')}
               </Text>
               <HStack spacing={3}>
                 {socialLinks.map((social, index) => (
@@ -176,7 +220,7 @@ const Footer = () => {
                       size="sm"
                       variant="ghost"
                       color="gray.400"
-                      _hover={{ 
+                      _hover={{
                         color: social.color,
                         bg: 'gray.800'
                       }}
@@ -200,23 +244,27 @@ const Footer = () => {
           gap={4}
         >
           <Text fontSize="sm" textAlign={{ base: 'center', md: 'left' }}>
-            © {new Date().getFullYear()} عبد اللطيف مصطفى. جميع الحقوق محفوظة.
+            © {new Date().getFullYear()}
+            {i18n.language === 'ar' ? ' عبد اللطيف مصطفى. جميع الحقوق محفوظة.' : ' AbdellatyF mostafa. All rights reserved.'}
           </Text>
-          
           <HStack spacing={6} fontSize="sm">
-            <Link 
-              href="#" 
+            {/* سياسة الخصوصية */}
+            <Link
+              href="#"
               _hover={{ color: 'mocha.400' }}
               transition="color 0.2s ease"
             >
-              سياسة الخصوصية
+              {t('footer.privacy')}
             </Link>
-            <Link 
-              href="#" 
+            {/*
+            شروط الاستخدام
+            */}
+            <Link
+              href="#"
               _hover={{ color: 'mocha.400' }}
               transition="color 0.2s ease"
             >
-              شروط الاستخدام
+              {t('footer.terms')}
             </Link>
           </HStack>
         </Flex>

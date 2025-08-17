@@ -1,0 +1,73 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "Abdullatif Mostafa",
+    "title": "Full Stack Developer",
+    "description": "A passionate web developer specialized in Node.js and React.js. I build robust and scalable web applications and services, focusing on both frontend and backend development. I have experience in e-commerce and logistics platforms, delivering high-performance, user-centered solutions.",
+    "contactMe": "Contact Me",
+    "myWork": "My Work",
+    "scrollDown": "Scroll Down"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Learn about my background and experience in web development",
+    "description": "A passionate web developer specialized in building modern web applications and websites using the latest technologies.",
+    "experience": "Years of Experience",
+    "projects": "Completed Projects",
+    "clients": "Happy Clients",
+    "technologies": "Technologies Mastered"
+  },
+  "projects": {
+    "title": "My Work",
+    "subtitle": "A collection of projects I've developed using the latest technologies",
+    "featured": "Featured Projects",
+    "allProjects": "All Projects",
+    "viewProject": "View Project",
+    "categories": {
+      "fullstack": "Full Stack",
+      "frontend": "Frontend"
+    }
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "subtitle": "Technologies and tools I master in web development"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Let's talk about your next project",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "successTitle": "Message sent successfully",
+    "successMessage": "Thank you for contacting me. I will get back to you as soon as possible.",
+    "phone": "Phone",
+    "location": "Location",
+    "followMe": "Follow Me"
+  },
+  "footer": {
+    "description": "A passionate web developer specialized in building modern web applications and websites using the latest technologies.",
+    "madeWith": "Made with",
+    "and": "and",
+    "in": "in",
+    "country": "Egypt",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "webDevelopment": "Web Development",
+    "webApplications": "Web Applications",
+    "uiDesign": "UI/UX Design",
+    "consulting": "Technical Consulting",
+    "maintenance": "Maintenance & Support",
+    "contactInfo": "Contact Info",
+    "rights": "All rights reserved"
+  }
+}
+

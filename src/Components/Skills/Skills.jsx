@@ -12,18 +12,15 @@ import {
   useBreakpointValue,
   Progress,
   Badge,
-  Flex,
 } from '@chakra-ui/react';
 import {
   FaReact,
   FaNodeJs,
-  FaDatabase,
   FaHtml5,
   FaCss3Alt,
   FaJsSquare,
   FaGitAlt,
   FaDocker,
-  FaAws,
 } from 'react-icons/fa';
 import {
   SiMongodb,
@@ -40,6 +37,7 @@ import {
 
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useTranslation } from 'react-i18next';
 
 // Enhanced skills array with proficiency levels and categories
 const skillCategories = [
@@ -91,6 +89,7 @@ const MotionBox = motion(Box);
 const MotionVStack = motion(VStack);
 
 export default function Skills() {
+  const { t } = useTranslation();
   const columns = useBreakpointValue({ base: 1, md: 2 });
   const bgColor = useColorModeValue('gray.50', 'gray.800');
   
@@ -113,10 +112,10 @@ export default function Skills() {
               fontWeight="800"
               mb={4}
             >
-              مهاراتي التقنية
+              {t('skills.title')}
             </Heading>
             <Text fontSize="lg" color="gray.600" maxW="600px">
-              التقنيات والأدوات التي أتقنها في تطوير الويب
+              {t('skills.subtitle')}
             </Text>
           </MotionBox>
 
@@ -140,14 +139,14 @@ export default function Skills() {
           >
             <VStack spacing={8}>
               <Heading as="h3" size="lg" color="gray.800" textAlign="center">
-                ملخص المهارات
+                {t('skills.summary')}
               </Heading>
               
               <SimpleGrid columns={{ base: 2, md: 4 }} spacing={6} w="100%">
-                <StatCard title="سنوات الخبرة" value="3+" color="green" />
-                <StatCard title="التقنيات المتقنة" value="16+" color="blue" />
-                <StatCard title="المشاريع المكتملة" value="20+" color="purple" />
-                <StatCard title="العملاء الراضون" value="15+" color="orange" />
+                <StatCard title={t('skills.stats.experience')} value="2+" color="green" />
+                <StatCard title={t('skills.stats.technologies')} value="17+" color="blue" />
+                <StatCard title={t('skills.stats.projects')} value="16+" color="purple" />
+                <StatCard title={t('skills.stats.clients')} value="15+" color="orange" />
               </SimpleGrid>
             </VStack>
           </MotionBox>
@@ -159,6 +158,7 @@ export default function Skills() {
 
 // Skill Category Card Component
 const SkillCategoryCard = ({ category, index }) => {
+  const { t ,i18n} = useTranslation();
   const cardBg = useColorModeValue('white', 'gray.700');
   const controls = useAnimation();
   const [ref, inView] = useInView({
@@ -206,13 +206,14 @@ const SkillCategoryCard = ({ category, index }) => {
             borderRadius="full"
             fontSize="sm"
           >
-            {category.title}
+            {i18n.language === 'en' ? category.title : category.titleAr}
+            {/* {t(category.title)} */}
           </Badge>
         </HStack>
         
-        <Heading as="h4" size="md" color="gray.800">
+        {/* <Heading as="h4" size="md" color="gray.800">
           {category.titleAr}
-        </Heading>
+        </Heading> */}
         
         <VStack spacing={4} w="100%">
           {category.skills.map((skill, skillIndex) => (

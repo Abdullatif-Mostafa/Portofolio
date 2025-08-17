@@ -1,11 +1,11 @@
 import React from 'react';
-import { 
-  Box, 
+import {
+  Box,
   Container,
-  Heading, 
-  Text, 
-  Stack, 
-  Avatar, 
+  Heading,
+  Text,
+  Stack,
+  Avatar,
   useColorModeValue,
   SimpleGrid,
   VStack,
@@ -16,21 +16,23 @@ import {
 } from '@chakra-ui/react';
 import { FaCode, FaServer, FaDatabase, FaMobile } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import image1 from '../../Assets/Images/contentImage.png';
 
 const MotionBox = motion(Box);
 
-const skills = [
-  { icon: FaCode, title: 'تطوير الواجهات الأمامية', desc: 'React.js, Next.js, HTML5, CSS3' },
-  { icon: FaServer, title: 'تطوير الخلفية', desc: 'Node.js, Express.js, APIs' },
-  { icon: FaDatabase, title: 'قواعد البيانات', desc: 'MongoDB, MySQL, Firebase' },
-  { icon: FaMobile, title: 'التصميم المتجاوب', desc: 'Mobile-First, PWA' }
-];
-
 export default function About() {
+  const { t } = useTranslation();
   const bgColor = useColorModeValue('gray.50', 'gray.800');
   const cardBg = useColorModeValue('white', 'gray.700');
-  
+
+  const skills = [
+    { icon: FaCode, title: t('about.frontend.title'), desc: t('about.frontend.description') },
+    { icon: FaServer, title: t('about.backend.title'), desc: t('about.backend.description') },
+    { icon: FaDatabase, title: t('about.database.title'), desc: t('about.database.description') },
+    { icon: FaMobile, title: t('about.responsive.title'), desc: t('about.responsive.description') }
+  ];
+
   return (
     <Box bg={bgColor} py={20} id="about">
       <Container maxW="7xl">
@@ -50,10 +52,10 @@ export default function About() {
               fontWeight="800"
               mb={4}
             >
-              نبذة عني
+              {t('about.title')}
             </Heading>
             <Text fontSize="lg" color="gray.600" maxW="600px">
-              مطور ويب شغوف بالتكنولوجيا والابتكار
+              {t('about.subtitle')}
             </Text>
           </MotionBox>
 
@@ -83,7 +85,7 @@ export default function About() {
                 <Avatar
                   size="2xl"
                   src={image1}
-                  alt="عبد اللطيف مصطفى"
+                  alt={t('hero.name')}
                   w={{ base: '250px', md: '300px' }}
                   h={{ base: '250px', md: '300px' }}
                   border="6px solid white"
@@ -102,24 +104,22 @@ export default function About() {
             >
               <VStack align="flex-start" spacing={6}>
                 <Heading as="h3" size="xl" color="gray.800">
-                  مطور ويب متكامل
+                  {t('about.mainTitle')}
                 </Heading>
                 
                 <Text fontSize="lg" color="gray.600" lineHeight="1.8">
-                  أنا مطور ويب شغوف متخصص في  و Next js , Node.js و React.js. أقوم ببناء مواقع ويب وخدمات قوية وقابلة للتطوير، 
-                  مع التركيز على تطوير الواجهات الأمامية والخلفية. لدي خبرة في منصات التجارة الإلكترونية واللوجستيات، 
-                  وأقدم حلولاً عالية الأداء ومتمحورة حول المستخدم.
+                  {t('about.description')}
                 </Text>
 
                 <HStack spacing={4} flexWrap="wrap">
                   <Badge colorScheme="green" px={3} py={1} borderRadius="full">
-                    +2 سنوات خبرة
+                    +2 {t('hero.experience')}
                   </Badge>
                   <Badge colorScheme="blue" px={3} py={1} borderRadius="full">
-                    +20 مشروع
+                    +16 {t('hero.projectsCount')}
                   </Badge>
                   <Badge colorScheme="purple" px={3} py={1} borderRadius="full">
-                    Full Stack
+                    {t('hero.fullStack')}
                   </Badge>
                 </HStack>
               </VStack>
@@ -134,7 +134,7 @@ export default function About() {
             w="100%"
           >
             <Heading as="h3" size="lg" textAlign="center" mb={8} color="gray.800">
-              مجالات التخصص
+              {t('about.specializations')}
             </Heading>
             
             <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={6}>

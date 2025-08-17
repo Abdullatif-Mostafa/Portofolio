@@ -19,10 +19,12 @@ import {
 } from '@chakra-ui/react';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const MotionBox = motion(Box);
 
 export default function Contact() {
+  const { t , i18n} = useTranslation();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const toast = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -57,20 +59,24 @@ export default function Contact() {
   const contactInfo = [
     {
       icon: FaEnvelope,
-      title: 'البريد الإلكتروني',
-      value: 'abdellatyfmostafa8@gmail.com',
+      title_ar: 'البريد الإلكتروني',
+      title_en:"Email",
+      value: 'abdullatif.mostafa@example.com',
       color: 'blue.500'
     },
     {
       icon: FaPhone,
-      title: 'الهاتف',
+      title_ar: 'الهاتف',
+      title_en: "Phone",
       value: '+20 01032558781',
       color: 'green.500'
     },
     {
       icon: FaMapMarkerAlt,
-      title: 'الموقع',
-      value: 'القاهرة, مصر',
+      title_ar: 'الموقع',
+      title_en: "Location",
+      value_ar: 'القاهرة, مصر',
+      value_en: 'Cairo, Egypt',
       color: 'red.500'
     }
   ];
@@ -81,6 +87,30 @@ export default function Contact() {
     { icon: FaTwitter, href: 'https://twitter.com/AbdullatifMous3', color: 'blue.400' },
   ];
 
+  const contactDetails = contactInfo.map(info => ({
+    ...info,
+    title:i18n.language === 'ar' ? 'تواصل معي' : 'Contact Me',
+    phone: i18n.language === 'ar' ? 'الهاتف' : 'Phone',
+    email: i18n.language === 'ar' ? 'البريد الإلكتروني' : 'Email',
+    location: i18n.language === 'ar' ? 'الموقع' : 'Location',
+    locationValue: i18n.language === 'ar' ? 'القاهرة, مصر' : 'Cairo, Egypt',
+    socialMedia: i18n.language === 'ar' ? 'تابعني على وسائل التواصل' : 'Follow me on social media',
+    form: {
+      title: i18n.language === 'ar' ? 'أرسل رسالة' : 'Send Message',
+      name: i18n.language === 'ar' ? 'الاسم' :  'Name',
+      namePlaceholder: i18n.language === 'ar' ? 'اسمك الكامل' : 'Your full name',
+      email: i18n.language === 'ar' ? 'البريد الإلكتروني' : 'Email',
+      emailPlaceholder: i18n.language === 'ar' ? '  البريد الإلكتروني' : 'Your email address',
+      message: i18n.language === 'ar' ? 'الرسالة' : 'Message',
+      messagePlaceholder: i18n.language === 'ar' ? 'اكتب رسالتك هنا...' : 'Write your message here...',
+      send: i18n.language === 'ar' ? 'إرسال الرسالة' : 'Send Message',
+      sending: i18n.language === 'ar' ? 'جاري الإرسال...' : 'Sending...',
+      success: i18n.language === 'ar' ? 'تم إرسال الرسالة بنجاح' : 'Message sent successfully',
+      successDescription: i18n.language === 'ar' 
+        ? 'شكراً لك على التواصل معي. سأقوم بالرد عليك في أقرب وقت ممكن.'
+        : 'Thank you for contacting me. I will get back to you as soon as possible.'
+    }
+  }));
   return (
     <Box bg={bgColor} py={20} id="contact">
       <Container maxW="7xl">
@@ -100,10 +130,12 @@ export default function Contact() {
               fontWeight="800"
               mb={4}
             >
-              تواصل معي
+              {t('contact.title')}
+              {/* تواصل معي */}
             </Heading>
             <Text fontSize="lg" color="gray.600" maxW="600px">
-              هل لديك مشروع في ذهنك؟ دعنا نتحدث ونحوله إلى واقع
+              {t('contact.subtitle')}
+              {/* هل لديك مشروع في ذهنك؟ دعنا نتحدث ونحوله إلى واقع */}
             </Text>
           </MotionBox>
 
@@ -117,15 +149,17 @@ export default function Contact() {
               <VStack align="flex-start" spacing={8}>
                 <Box>
                   <Heading as="h3" size="lg" mb={4} color="gray.800">
-                    معلومات التواصل
+                    {t('contact.info')}
+                    {/* معلومات التواصل */}
                   </Heading>
                   <Text color="gray.600" mb={8}>
-                    يمكنك التواصل معي من خلال أي من الطرق التالية. سأكون سعيداً للحديث معك حول مشروعك القادم.
+                    {t('contact.infoDescription')}
+                    {/* يمكنك التواصل معي من خلال أي من الطرق التالية. سأكون سعيداً للحديث معك حول مشروعك القادم. */}
                   </Text>
                 </Box>
 
                 <VStack spacing={6} align="flex-start" w="100%">
-                  {contactInfo.map((info, index) => (
+                  {contactDetails.map((info, index) => (
                     <MotionBox
                       key={index}
                       initial={{ opacity: 0, x: -20 }}
@@ -146,10 +180,11 @@ export default function Contact() {
                         </Flex>
                         <Box>
                           <Text fontWeight="semibold" color="gray.800" mb={1}>
-                            {info.title}
+                            {i18n.language === 'ar' ? info.title_ar : info.title_en}
+                            {/* {t('info.title')} */}
                           </Text>
                           <Text color="gray.600" fontSize="sm">
-                            {info.value}
+                            {i18n.language === 'ar' ? info.value_ar || info.value : info.value_en || info.value}
                           </Text>
                         </Box>
                       </HStack>
@@ -160,7 +195,7 @@ export default function Contact() {
                 {/* Social Links */}
                 <Box w="100%">
                   <Text fontWeight="semibold" color="gray.800" mb={4}>
-                    تابعني على وسائل التواصل
+                    {t('contact.socialMedia')}
                   </Text>
                   <HStack spacing={4}>
                     {socialLinks.map((social, index) => (
@@ -211,20 +246,20 @@ export default function Contact() {
                 _hover={{ shadow: '2xl' }}
               >
                 <Heading as="h3" size="lg" mb={6} color="gray.800">
-                  أرسل رسالة
-                </Heading>
-                
+                  {i18n.language === 'ar' ? 'أرسل رسالة' : 'Send Message'}
+                </Heading>                
                 <form onSubmit={handleSubmit}>
                   <VStack spacing={6}>
                     <FormControl id="name" isRequired>
                       <FormLabel color="gray.700" fontWeight="semibold">
-                        الاسم 
+                        {i18n.language === 'ar' ? 'الاسم ' : 'Name '}
+                        {/* الاسم * */}
                       </FormLabel>
                       <Input
                         type="text"
                         name="name"
-                        placeholder="اسمك الكامل"
-                        value={formData.name}
+                        placeholder={i18n.language === 'ar' ? 'اسمك' : 'Your Name'}
+                        value={formData.name}                       
                         onChange={handleChange}
                         bg="gray.50"
                         border="2px solid transparent"
@@ -241,12 +276,12 @@ export default function Contact() {
 
                     <FormControl id="email" isRequired>
                       <FormLabel color="gray.700" fontWeight="semibold">
-                        البريد الإلكتروني 
+                        {i18n.language === 'ar' ? 'البريد الإلكتروني' : 'Email'}
                       </FormLabel>
                       <Input
                         type="email"
                         name="email"
-                        placeholder="your.email@example.com"
+                        placeholder={i18n.language === 'ar' ? 'البريد الإلكتروني الخاص بك' : 'Your Email'}
                         value={formData.email}
                         onChange={handleChange}
                         bg="gray.50"
@@ -264,11 +299,11 @@ export default function Contact() {
 
                     <FormControl id="message" isRequired>
                       <FormLabel color="gray.700" fontWeight="semibold">
-                        الرسالة 
+                        {i18n.language === 'ar' ? 'الرسالة' : 'Message'}
                       </FormLabel>
                       <Textarea
                         name="message"
-                        placeholder="اكتب رسالتك هنا..."
+                        placeholder={i18n.language === 'ar' ? 'اكتب رسالتك هنا...' : 'Write your message here...'}
                         value={formData.message}
                         onChange={handleChange}
                         bg="gray.50"
@@ -291,7 +326,7 @@ export default function Contact() {
                       size="lg"
                       width="full"
                       isLoading={isSubmitting}
-                      loadingText="جاري الإرسال..."
+                      loadingText= {i18n.language === 'ar' ? 'جاري الإرسال...' : 'Sending...'}
                       borderRadius="12px"
                       py={6}
                       fontSize="md"
@@ -302,7 +337,7 @@ export default function Contact() {
                       }}
                       transition="all 0.3s ease"
                     >
-                      إرسال الرسالة
+                      {i18n.language === 'ar' ? 'إرسال الرسالة' : 'Send Message'}
                     </Button>
                   </VStack>
                 </form>
