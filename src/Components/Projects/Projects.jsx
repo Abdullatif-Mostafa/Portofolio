@@ -36,6 +36,7 @@ import image11 from '../../Assets/Images/Screenshot 2025-08-12 173432.png'
 import image12 from '../../Assets/Images/Screenshot 2025-08-12 224323.png'
 import image13 from '../../Assets/Images/Screenshot 2025-08-14 225302.png'
 import image14 from '../../Assets/Images/Screenshot 2025-08-16 094149.png'
+import image15 from '../../Assets/Images/Screenshot 2025-08-17 225615.png'
 const projectsData = [
   {
     title_ar: 'تطبيق وصال',
@@ -83,6 +84,17 @@ const projectsData = [
     link: 'https://social-aapp.vercel.app/',
     category_ar: 'Full Stack',
     category_en: 'Full Stack',
+  },
+  {
+    title_ar: 'موقع جوهره العطور',
+    title_en: 'Jewelry Store',
+    description_ar: 'تطوير منصة تجارة العطور والساعات والمجوهرات والاكسسورات   وتصفح المنتجات وإدارة السلة',
+    description_en: 'Development of a jewelry store platform for perfumes, watches, and accessories with product browsing and cart management.',  
+    image: image15,
+    technologies: ['HTML', 'CSS','JavaScript'],
+    link: 'https://jwele-perfume.vercel.app/',
+    category_ar: 'Frontend',
+    category_en: 'Frontend',
   },
   {
     title_ar: 'منصة نقل الأثاث',
