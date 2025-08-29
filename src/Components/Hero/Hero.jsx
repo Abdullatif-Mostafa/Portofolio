@@ -196,7 +196,7 @@ const Hero = () => {
                   size="lg"
                   leftIcon={<FaLinkedin />}
                   as="a"
-                  href="#"
+                  href="https://www.linkedin.com/in/abdullatif-moustafa-1b6322248"
                   target="_blank"
                   color="gray.600"
                   _hover={{ color: 'mocha.500', bg: 'mocha.50' }}
