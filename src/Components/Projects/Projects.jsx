@@ -103,7 +103,7 @@ const projectsData = [
     description_en: 'Development of a responsive frontend platform for users to connect with specialized furniture moving services.',
     image: image3,
     technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
-    link: 'https://furniture-eaccd.firebaseapp.com',
+    link: 'https://furniture-ten-coral.vercel.app',
     category_ar: 'Frontend',
     category_en: 'Frontend',
   },
