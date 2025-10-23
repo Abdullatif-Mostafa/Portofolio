@@ -69,5 +69,13 @@
     "contactInfo": "Contact Info",
     "rights": "All rights reserved"
   }
+  ,
+  "testimonials": {
+    "title": "Client Testimonials",
+    "subtitle": "What clients say about working with me — real feedback from real projects.",
+    "client": "Client",
+    "job": "Job",
+    "message": "Message"
+  }
 }
 

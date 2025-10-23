@@ -63,6 +63,11 @@ const resources = {
           frontend: "FRONTEND"
         }
       },
+      // testimonials Section
+      testimonials: {
+        title: "ماذا يقول العملاء",
+        subtitle: "آراء العملاء حول عملي",
+            },
       // Skills Section
       skills: {
         title: "مهاراتي التقنية",

@@ -6,6 +6,7 @@ import Header from './Components/Header/Header';
 import Hero from './Components/Hero/Hero';
 import About from './Components/About/About';
 import Projects from './Components/Projects/Projects';
+import Testimonials from './Components/Testimonials/Testimonials';
 import Skills from './Components/Skills/Skills';
 import Contact from './Components/Contact/Contact';
 import Footer from './Components/Footer/Footer';
@@ -125,6 +126,9 @@ function App() {
         </Box>
         <Box id="projects" py={20} bg="white">
           <Projects />
+        </Box>
+        <Box id="testimonials" py={20}>
+          <Testimonials />
         </Box>
         <Box id="skills" py={20}>
           <Skills />

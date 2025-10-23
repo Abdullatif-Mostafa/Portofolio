@@ -5,7 +5,6 @@ import {
   Heading,
   Text,
   Image,
-  Stack,
   Link,
   SimpleGrid,
   Button,

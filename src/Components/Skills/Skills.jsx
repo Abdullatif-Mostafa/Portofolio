@@ -9,7 +9,6 @@ import {
   VStack,
   HStack,
   useColorModeValue,
-  useBreakpointValue,
   Progress,
   Badge,
 } from '@chakra-ui/react';
@@ -86,11 +85,10 @@ const skillCategories = [
 ];
 
 const MotionBox = motion(Box);
-const MotionVStack = motion(VStack);
+// MotionVStack not required right now
 
 export default function Skills() {
   const { t } = useTranslation();
-  const columns = useBreakpointValue({ base: 1, md: 2 });
   const bgColor = useColorModeValue('gray.50', 'gray.800');
   
   return (
@@ -158,7 +156,7 @@ export default function Skills() {
 
 // Skill Category Card Component
 const SkillCategoryCard = ({ category, index }) => {
-  const { t ,i18n} = useTranslation();
+  const { i18n } = useTranslation();
   const cardBg = useColorModeValue('white', 'gray.700');
   const controls = useAnimation();
   const [ref, inView] = useInView({
