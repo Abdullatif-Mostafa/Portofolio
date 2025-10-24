@@ -65,10 +65,10 @@ export default function Testimonials() {
               bgClip="text"
               fontWeight="800"
             >
-              {t('testimonials.title')}
+              {i18n.language === 'en' ? t('testimonials.en_title') : t('testimonials.ar_title')}
             </Heading>
             <Text fontSize="lg" color="gray.600" maxW="700px" mx="auto" mt={4}>
-              {t('testimonials.subtitle')}
+              {i18n.language === 'en' ? t('testimonials.en_subtitle') : t('testimonials.ar_subtitle')}
             </Text>
           </MotionBox>
 

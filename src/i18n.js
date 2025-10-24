@@ -65,8 +65,13 @@ const resources = {
       },
       // testimonials Section
       testimonials: {
-        title: "ماذا يقول العملاء",
-        subtitle: "آراء العملاء حول عملي",
+        ar_title: "ماذا يقول العملاء",
+        en_title: "Client Testimonials",
+        ar_subtitle: "آراء العملاء حول عملي",
+        en_subtitle: "What clients say about working with me – real feedback from actual projects.",
+        client: "Client",
+        job: "Job",
+        message: "Message"
             },
       // Skills Section
       skills: {
