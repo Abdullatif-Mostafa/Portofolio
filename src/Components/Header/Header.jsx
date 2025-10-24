@@ -168,11 +168,13 @@ const Header = () => {
             <Image
               fallback={
                 <Flex
-                  align="center"
-                  justify="center"
-                  bg="mocha.100"
-                  fontSize="45px"
-                  color="mocha.500"
+                align="center"
+                justify="center"
+                bg="mocha.100"
+                fontSize="45px"
+                color="mocha.500"
+                display={{ base: "none", sm: "none" , md: "block" }}
+                  borderRadius="md"
                 >
                   👨‍💻
                 </Flex>
