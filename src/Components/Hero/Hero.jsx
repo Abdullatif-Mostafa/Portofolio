@@ -16,7 +16,7 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaArrowDown, FaFileAlt } from 'react-
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import i18n from '../../i18n';
-
+import heroImg from '../../Assets/Images/ChatGPT Image Oct 24, 2025, 03_51_33 PM.png';
 const MotionBox = motion(Box);
 const MotionText = motion(Text);
 const MotionHeading = motion(Heading);
@@ -272,7 +272,7 @@ const Hero = () => {
                   position="relative"
                 >
                   <Image
-                    src="/src/Assets/Images/contentImage.png"
+                    src={heroImg}
                     alt={t('hero.name')}
                     w="100%"
                     h="100%"
@@ -287,8 +287,8 @@ const Hero = () => {
                         fontSize="200px"
                         color="mocha.500"
                       >
-                        👨‍💻
-                        {/* <Image src="/src/Assets/Images/contentImage.png" alt="Profile" w="120px" h="120px" borderRadius="full" /> */}
+                        {/* 👨‍💻 */}
+                        {/* <img src="/src/Assets/Images/contentImage.png" alt="Profile" w="120px" h="120px" borderRadius="full" /> */}
                       </Flex>
                     }
                   />

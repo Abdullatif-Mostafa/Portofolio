@@ -10,6 +10,7 @@ import {
   Button,
   useColorModeValue,
   Container,
+  Image,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Link as ScrollLink } from 'react-scroll';
@@ -99,32 +100,43 @@ const Header = () => {
         backdropFilter="blur(10px)"
         borderBottom="1px solid"
         borderColor={borderColor}
-        // transition="all 0.3s ease"
+      // transition="all 0.3s ease"
       >
         <Container maxW="7xl">
           <Flex h={20} alignItems="center" justifyContent="space-between">
-            {/* Logo */}
             <MotionBox
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
+              position="relative"
+              ml={{ base: 0, md: -4 }}
             >
-              <Heading
-                size="lg"
-                bgGradient="linear(to-r, mocha.500, mocha.700)"
-                bgClip="text"
-                fontWeight="800"
-                cursor="pointer"
-                _hover={{
-                  transform: 'scale(1.05)',
-                }}
-                transition="transform 0.2s"
-              >
-                {t('hero.name').split(' ')[0]}
-              </Heading>
+              <HStack spacing={3} align="center">
+
+                <MotionBox
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  <Heading
+                    size={{ base: "md", md: "lg" }}
+                    bgGradient="linear(135deg, mocha.600, mocha.800)"
+                    bgClip="text"
+                    fontWeight="800"
+                    cursor="pointer"
+                    display={{ base: "none", sm: "block" }}
+                    letterSpacing="tight"
+                    _hover={{
+                      bgGradient: "linear(135deg, mocha.500, mocha.700)",
+                    }}
+                    transition="all 0.3s"
+                  >
+                    {t('hero.name').split(' ')[0]}
+                  </Heading>
+                </MotionBox>
+              </HStack>
             </MotionBox>
 
-            {/* Desktop Navigation */}
             <HStack
               as="nav"
               spacing={1}
@@ -142,8 +154,7 @@ const Header = () => {
                   </NavLink>
                 </MotionBox>
               ))}
-              
-              {/* Language Switcher */}
+
               <MotionBox
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -154,16 +165,29 @@ const Header = () => {
               </MotionBox>
             </HStack>
 
-            {/* Mobile menu button and language switcher */}
-            <HStack spacing={2}>
-              <Box display={{ base: 'block', md: 'none' }}>
+            <Image
+              fallback={
+                <Flex
+                  align="center"
+                  justify="center"
+                  bg="mocha.100"
+                  fontSize="45px"
+                  color="mocha.500"
+                >
+                  👨‍💻
+                </Flex>
+              }
+            />
+            {/* munu */}
+            <HStack display={{ lg: 'none' }} >
+              {/* <Box display={{ base: 'none', md: 'none' , lg: 'none' }}>
                 <LanguageSwitcher />
-              </Box>
+              </Box> */}
               <IconButton
                 size="lg"
                 icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
                 aria-label="فتح القائمة"
-                display={{ md: 'none' }}
+                display={{ md: 'none', lg: 'none' }}
                 onClick={isOpen ? onClose : onOpen}
                 variant="ghost"
                 color="gray.700"
@@ -197,6 +221,9 @@ const Header = () => {
                       {link.name}
                     </NavLink>
                   ))}
+                  <Box display={{ base: 'block', md: 'none', lg: 'none' }}>
+                    <LanguageSwitcher />
+                  </Box>
                 </Stack>
               </Container>
             </MotionBox>
