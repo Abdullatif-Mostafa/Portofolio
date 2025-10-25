@@ -22,7 +22,8 @@ const MotionText = motion(Text);
 const MotionHeading = motion(Heading);
 
 // CSS animations as strings
-const floatAnimation = `
+const floatAnimation =
+ `
   @keyframes float {
     0% { transform: translateY(0px) rotate(0deg); }
     33% { transform: translateY(-10px) rotate(1deg); }

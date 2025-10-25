@@ -124,7 +124,7 @@ const Header = () => {
                     bgClip="text"
                     fontWeight="800"
                     cursor="pointer"
-                    display={{ base: "none", sm: "block" }}
+                    display={{ base: "block", sm: "block" }}
                     letterSpacing="tight"
                     _hover={{
                       bgGradient: "linear(135deg, mocha.500, mocha.700)",
