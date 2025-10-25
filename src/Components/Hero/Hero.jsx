@@ -132,10 +132,12 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                fontSize="lg"
+                fontSize={{ base: "lg", sm: "lg" }}
                 color="gray.600"
+                w={{ base: "90%", sm: "500px" }}
                 maxW="500px"
                 lineHeight="1.8"
+                direction="rtl"
               >
                 {t('hero.description')}
               </MotionText>
@@ -145,9 +147,12 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
-                <HStack spacing={3} justify={{ base: 'center', lg: 'flex-start' }}>
+                <HStack 
+                spacing={{ base: 1.5, md: 6 }} 
+                justify={{ base: 'center',  lg: 'flex-start' }}
+                >
                   <Button
-                    size="lg"
+                    size={{ base: 'md', sm: 'lg' }}
                     variant="solid"
                     leftIcon={<FaEnvelope />}
                     as="a"
@@ -160,7 +165,7 @@ const Hero = () => {
                     {t('hero.contactBtn')}
                   </Button>
                   <Button
-                    size="lg"
+                    size={{ base: 'md', sm: 'lg' }}
                     variant="outline"
                     as="a"
                     href="#projects"
@@ -172,7 +177,7 @@ const Hero = () => {
                     {t('hero.projectsBtn')}
                   </Button>
                   <Button
-                    size="lg"
+                    size={{ base: 'md', sm: 'lg' }}
                     variant="outline"
                     as="a"
                     href="https://drive.google.com/file/d/1vaPdBh_4QI1iEYvsa0pBI6m8g3VTYbfF/view?usp=drive_link"
