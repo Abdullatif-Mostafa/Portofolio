@@ -24,11 +24,11 @@ import { useTranslation } from 'react-i18next';
 const MotionBox = motion(Box);
 
 export default function Contact() {
-  const { t , i18n} = useTranslation();
+  const { t, i18n } = useTranslation();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const toast = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   const bgColor = useColorModeValue('white', 'gray.800');
   const cardBg = useColorModeValue('white', 'gray.700');
 
@@ -60,8 +60,8 @@ export default function Contact() {
     {
       icon: FaEnvelope,
       title_ar: 'البريد الإلكتروني',
-      title_en:"Email",
-      value: 'abdullatif.mostafa@example.com',
+      title_en: "Email",
+      value: 'abdellatyfmostafa8@gmail.com',
       color: 'blue.500'
     },
     {
@@ -89,7 +89,7 @@ export default function Contact() {
 
   const contactDetails = contactInfo.map(info => ({
     ...info,
-    title:i18n.language === 'ar' ? 'تواصل معي' : 'Contact Me',
+    title: i18n.language === 'ar' ? 'تواصل معي' : 'Contact Me',
     phone: i18n.language === 'ar' ? 'الهاتف' : 'Phone',
     email: i18n.language === 'ar' ? 'البريد الإلكتروني' : 'Email',
     location: i18n.language === 'ar' ? 'الموقع' : 'Location',
@@ -97,7 +97,7 @@ export default function Contact() {
     socialMedia: i18n.language === 'ar' ? 'تابعني على وسائل التواصل' : 'Follow me on social media',
     form: {
       title: i18n.language === 'ar' ? 'أرسل رسالة' : 'Send Message',
-      name: i18n.language === 'ar' ? 'الاسم' :  'Name',
+      name: i18n.language === 'ar' ? 'الاسم' : 'Name',
       namePlaceholder: i18n.language === 'ar' ? 'اسمك الكامل' : 'Your full name',
       email: i18n.language === 'ar' ? 'البريد الإلكتروني' : 'Email',
       emailPlaceholder: i18n.language === 'ar' ? '  البريد الإلكتروني' : 'Your email address',
@@ -106,7 +106,7 @@ export default function Contact() {
       send: i18n.language === 'ar' ? 'إرسال الرسالة' : 'Send Message',
       sending: i18n.language === 'ar' ? 'جاري الإرسال...' : 'Sending...',
       success: i18n.language === 'ar' ? 'تم إرسال الرسالة بنجاح' : 'Message sent successfully',
-      successDescription: i18n.language === 'ar' 
+      successDescription: i18n.language === 'ar'
         ? 'شكراً لك على التواصل معي. سأقوم بالرد عليك في أقرب وقت ممكن.'
         : 'Thank you for contacting me. I will get back to you as soon as possible.'
     }
@@ -247,7 +247,7 @@ export default function Contact() {
               >
                 <Heading as="h3" size="lg" mb={6} color="gray.800">
                   {i18n.language === 'ar' ? 'أرسل رسالة' : 'Send Message'}
-                </Heading>                
+                </Heading>
                 <form onSubmit={handleSubmit}>
                   <VStack spacing={6}>
                     <FormControl id="name" isRequired>
@@ -259,7 +259,7 @@ export default function Contact() {
                         type="text"
                         name="name"
                         placeholder={i18n.language === 'ar' ? 'اسمك' : 'Your Name'}
-                        value={formData.name}                       
+                        value={formData.name}
                         onChange={handleChange}
                         bg="gray.50"
                         border="2px solid transparent"
@@ -326,7 +326,7 @@ export default function Contact() {
                       size="lg"
                       width="full"
                       isLoading={isSubmitting}
-                      loadingText= {i18n.language === 'ar' ? 'جاري الإرسال...' : 'Sending...'}
+                      loadingText={i18n.language === 'ar' ? 'جاري الإرسال...' : 'Sending...'}
                       borderRadius="12px"
                       py={6}
                       fontSize="md"
